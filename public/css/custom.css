@@ -1,0 +1,77 @@
+.game-bg {
+  background-color: #f3f4f6; /* Warna fallback jika gambar tidak termuat */
+  background-image: url('/images/batik-pattern.png'); /* Simpan gambar di public/images/ */
+  background-repeat: repeat;
+  background-size: 400px;
+}
+
+/* public/css/custom-auth.css */
+
+/* Menggunakan kembali background dari halaman utama untuk konsistensi */
+body {
+    background-color: #f8f3e9;
+    background-image:
+        linear-gradient(135deg, rgba(188, 113, 73, 0.05) 25%, transparent 25%),
+        linear-gradient(225deg, rgba(188, 113, 73, 0.05) 25%, transparent 25%),
+        linear-gradient(45deg, rgba(188, 113, 73, 0.05) 25%, transparent 25%),
+        linear-gradient(315deg, rgba(188, 113, 73, 0.05) 25%, #f8f3e9 25%);
+    background-position: 10px 0, 10px 0, 0 0, 0 0;
+    background-size: 20px 20px;
+    background-repeat: repeat;
+}
+
+/* Mengubah kotak formulir utama */
+.auth-card {
+    background-color: rgba(255, 255, 255, 0.85) !important; /* Membuat lebih transparan */
+    backdrop-filter: blur(8px); /* Efek blur pada background */
+    border-radius: 1rem !important; /* Sudut lebih bulat */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Mengubah style logo atau judul */
+.auth-logo a {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #5D4037; /* Warna coklat tua */
+    text-decoration: none;
+}
+.auth-logo a:hover {
+    color: #A1887F; /* Warna coklat lebih muda saat hover */
+}
+
+/* Mengubah input fields */
+.auth-card input[type="text"],
+.auth-card input[type="email"],
+.auth-card input[type="password"] {
+    border-radius: 0.5rem !important;
+    border-color: #D7CCC8 !important; /* Warna border coklat muda */
+    background-color: #FFFEFC !important;
+}
+.auth-card input[type="text"]:focus,
+.auth-card input[type="email"]:focus,
+.auth-card input[type="password"]:focus {
+    border-color: #8D6E63 !important; /* Warna border saat aktif */
+    box-shadow: 0 0 0 1px #8D6E63 !important;
+}
+
+/* Mengubah tombol utama */
+.auth-card button[type="submit"] {
+    background-color: #B71C1C !important; /* Warna merah marun khas nusantara */
+    border-radius: 0.5rem !important;
+    font-weight: 600 !important;
+    transition: background-color 0.3s ease;
+}
+.auth-card button[type="submit"]:hover {
+    background-color: #880E4F !important; /* Warna lebih gelap saat hover */
+}
+
+/* Mengubah link "Forgot your password?" */
+.auth-card a {
+    color: #8D6E63 !important; /* Warna coklat */
+    text-decoration: none;
+}
+.auth-card a:hover {
+    color: #5D4037 !important;
+    text-decoration: underline;
+}
