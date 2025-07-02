@@ -15,7 +15,7 @@
 
 .game-bg {
     background-color: #f3f4f6;
-    background-image: url('/images/batik-pattern.png'); /* Path diperbarui */
+    background-image: url('/images/batik-pattern.png');
     background-repeat: repeat;
     background-size: 400px;
 }
@@ -28,14 +28,8 @@
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulse {
@@ -44,37 +38,25 @@
 }
 
 @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-    20%, 40%, 60%, 80% { transform: translateX(5px); }
+    10%, 90% { transform: translateX(-2px); }
+    20%, 80% { transform: translateX(4px); }
+    30%, 50%, 70% { transform: translateX(-6px); }
+    40%, 60% { transform: translateX(6px); }
 }
 
 @keyframes flash-green {
-    0%, 100% { background-color: #eff6ff; border-color: #60a5fa; }
-    50% { background-color: #dcfce7; border-color: #22c55e; }
+    50% { background-color: #10B981; border-color: #059669; }
 }
 
 @keyframes flash-red {
-    0%, 100% { background-color: #eff6ff; border-color: #60a5fa; }
-    50% { background-color: #fee2e2; border-color: #ef4444; }
+    50% { background-color: #EF4444; border-color: #DC2626; }
 }
 
 
 /* === Kelas Utilitas Animasi === */
-.animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
-}
-
-.animate-fade-in-up {
-    animation: fadeInUp 0.7s ease-out forwards;
-    opacity: 0;
-}
-
-.animate-stagger > * {
-    opacity: 0;
-    animation: fadeInUp 0.5s ease-out forwards;
-}
-
+.animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+.animate-fade-in-up { animation: fadeInUp 0.7s ease-out forwards; opacity: 0; }
+.animate-stagger > * { opacity: 0; animation: fadeInUp 0.5s ease-out forwards; }
 .animate-stagger > *:nth-child(1) { animation-delay: 0.1s; }
 .animate-stagger > *:nth-child(2) { animation-delay: 0.2s; }
 .animate-stagger > *:nth-child(3) { animation-delay: 0.3s; }
@@ -83,54 +65,20 @@
 
 
 /* === Gaya Komponen Interaktif === */
-.btn-animated {
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-.btn-animated:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
-}
-.btn-animated:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.btn-pulse:hover {
-    animation: pulse 1.5s infinite;
-}
+.btn-animated { transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+.btn-animated:hover { transform: translateY(-3px); box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1); }
+.btn-animated:active { transform: translateY(1px); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+.btn-pulse:hover { animation: pulse 1.5s infinite; }
 
-.card-animated {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card-animated:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
+.card-animated { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.card-animated:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); }
 
 
 /* === Gaya Spesifik Game === */
-.timer-warning {
-    color: #ef4444; /* red-500 */
-    animation: pulse 1s infinite;
-}
+.timer-warning { color: #ef4444; animation: pulse 1s infinite; }
+.drop-zone-dragover { border-color: #3b82f6; background-color: #eff6ff; transform: scale(1.02); }
 
-.drop-zone-dragover {
-    border-color: #3b82f6; /* blue-500 */
-    background-color: #eff6ff; /* blue-50 */
-    transform: scale(1.02);
-}
-
-.answer-correct {
-    animation: flash-green 1s ease-out;
-}
-
-.answer-incorrect {
-    animation: flash-red 1s ease-out;
-}
-
-.heart-lost {
-    animation: shake 0.5s ease-out;
-    color: #ef4444 !important;
-    transform: scale(0.8);
-}
-
+/* BARU: Kelas untuk indikator jawaban */
+.answer-correct { animation: flash-green 1s ease-out; }
+.answer-incorrect { animation: flash-red 1s ease-out; }
+.heart-lost { animation: shake 0.5s ease-out; color: #ef4444 !important; transform: scale(0.8); }

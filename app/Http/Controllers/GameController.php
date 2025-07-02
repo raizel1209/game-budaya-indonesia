@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Score; // <-- Tambahkan ini
-use Illuminate\Support\Facades\Auth; // <-- Tambahkan ini
+use App\Models\Score; // Tetap dipertahankan jika dibutuhkan di tempat lain, namun tidak untuk gameOver
+use Illuminate\Support\Facades\Auth;
 
 class GameController extends Controller
 {
@@ -17,19 +17,13 @@ class GameController extends Controller
     }
 
     /**
-     * Menampilkan halaman game over dan menyimpan skor.
+     * Menampilkan halaman game over.
+     * Logika penyimpanan skor telah dipindahkan ke ScoreController via API.
      */
     public function gameOver(Request $request)
     {
+        // Hanya mengambil skor dari query URL untuk ditampilkan
         $score = $request->query('score', 0);
-
-        // Pastikan user terautentikasi sebelum menyimpan
-        if (Auth::check()) {
-            Score::create([
-                'user_id' => Auth::id(),
-                'score' => $score,
-            ]);
-        }
         
         // Kirim skor ke view untuk ditampilkan
         return view('game-over', ['score' => $score]);

@@ -5,6 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
+                    {{-- Menambahkan kelas exit-game-check --}}
                     <a href="{{ route('dashboard') }}" class="exit-game-check">
                         <x-application-logo class="block h-9 w-auto text-red-700 dark:text-red-500" />
                     </a>
@@ -12,10 +13,12 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-1 sm:-my-px sm:ms-10 sm:flex">
+                    {{-- Menambahkan kelas exit-game-check --}}
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="exit-game-check">
                         <svg class="w-5 h-5 me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    {{-- Menambahkan kelas exit-game-check --}}
                     <x-nav-link :href="route('scores.index')" :active="request()->routeIs('scores.index')" class="exit-game-check">
                         <svg class="w-5 h-5 me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         {{ __('Papan Skor') }}
@@ -39,12 +42,14 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        {{-- Menambahkan kelas exit-game-check --}}
                         <x-dropdown-link :href="route('profile.edit')" class="flex items-center exit-game-check">
                             <svg class="w-4 h-4 me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
+                        {{-- Menambahkan kelas exit-game-check --}}
                         <form method="POST" action="{{ route('logout') }}" class="exit-game-check">
                             @csrf
                             <x-dropdown-link :href="route('logout')"
