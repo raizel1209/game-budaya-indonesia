@@ -1,0 +1,139 @@
+/* public/css/animations.css */
+
+/* Definisikan Keyframes untuk Animasi */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes flash-green {
+    0%, 100% { background-color: #e0f2fe; border-color: #38bdf8; } /* light-blue-50, sky-500 */
+    50% { background-color: #dcfce7; border-color: #22c55e; } /* green-100, green-500 */
+}
+
+@keyframes flash-red {
+    0%, 100% { background-color: #e0f2fe; border-color: #38bdf8; }
+    50% { background-color: #fee2e2; border-color: #ef4444; } /* red-100, red-500 */
+}
+
+/* Kelas Utilitas untuk Animasi */
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.7s ease-out forwards;
+    opacity: 0; /* Mulai dari transparan */
+}
+
+/* Animasi untuk elemen yang di-delay */
+.animate-stagger > * {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Atur delay untuk setiap anak elemen */
+.animate-stagger > *:nth-child(1) { animation-delay: 0.1s; }
+.animate-stagger > *:nth-child(2) { animation-delay: 0.2s; }
+.animate-stagger > *:nth-child(3) { animation-delay: 0.3s; }
+.animate-stagger > *:nth-child(4) { animation-delay: 0.4s; }
+.animate-stagger > *:nth-child(5) { animation-delay: 0.5s; }
+/* Tambahkan lebih banyak jika perlu */
+
+
+/* Gaya untuk Tombol */
+.btn-animated {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-animated:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+}
+
+.btn-animated:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-pulse:hover {
+    animation: pulse 1.5s infinite;
+}
+
+
+/* Gaya untuk Kartu/Box */
+.card-animated {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-animated:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Animasi untuk Game */
+.timer-warning {
+    color: #ef4444; /* red-500 */
+    animation: pulse 1s infinite;
+}
+
+.drop-zone-dragover {
+    border-color: #3b82f6; /* blue-500 */
+    background-color: #eff6ff; /* blue-50 */
+    transform: scale(1.02);
+}
+
+.answer-correct {
+    animation: flash-green 1s ease-out;
+}
+
+.answer-incorrect {
+    animation: flash-red 1s ease-out;
+}
+
+.heart-lost {
+    animation: shake 0.5s ease-out;
+}
+
+/* Transisi untuk Modal */
+.modal-enter {
+    opacity: 0;
+    transform: scale(0.9);
+}
+.modal-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 300ms, transform 300ms;
+}
+.modal-leave-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
+}

@@ -1,15 +1,8 @@
-.game-bg {
-  background-color: #f3f4f6; /* Warna fallback jika gambar tidak termuat */
-  background-image: url('/images/batik-pattern.png'); /* Simpan gambar di public/images/ */
-  background-repeat: repeat;
-  background-size: 400px;
-}
+/* public/css/custom.css */
 
-/* public/css/custom-auth.css */
-
-/* Menggunakan kembali background dari halaman utama untuk konsistensi */
-body {
-    background-color: #f8f3e9;
+/* === Gaya Dasar & Latar Belakang === */
+.batik-bg {
+    background-color: #f8f3e9; /* Warna krem soft */
     background-image:
         linear-gradient(135deg, rgba(188, 113, 73, 0.05) 25%, transparent 25%),
         linear-gradient(225deg, rgba(188, 113, 73, 0.05) 25%, transparent 25%),
@@ -20,58 +13,124 @@ body {
     background-repeat: repeat;
 }
 
-/* Mengubah kotak formulir utama */
-.auth-card {
-    background-color: rgba(255, 255, 255, 0.85) !important; /* Membuat lebih transparan */
-    backdrop-filter: blur(8px); /* Efek blur pada background */
-    border-radius: 1rem !important; /* Sudut lebih bulat */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+.game-bg {
+    background-color: #f3f4f6;
+    background-image: url('/images/batik-pattern.png'); /* Path diperbarui */
+    background-repeat: repeat;
+    background-size: 400px;
 }
 
-/* Mengubah style logo atau judul */
-.auth-logo a {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #5D4037; /* Warna coklat tua */
-    text-decoration: none;
-}
-.auth-logo a:hover {
-    color: #A1887F; /* Warna coklat lebih muda saat hover */
+
+/* === Keyframes untuk Animasi === */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* Mengubah input fields */
-.auth-card input[type="text"],
-.auth-card input[type="email"],
-.auth-card input[type="password"] {
-    border-radius: 0.5rem !important;
-    border-color: #D7CCC8 !important; /* Warna border coklat muda */
-    background-color: #FFFEFC !important;
-}
-.auth-card input[type="text"]:focus,
-.auth-card input[type="email"]:focus,
-.auth-card input[type="password"]:focus {
-    border-color: #8D6E63 !important; /* Warna border saat aktif */
-    box-shadow: 0 0 0 1px #8D6E63 !important;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Mengubah tombol utama */
-.auth-card button[type="submit"] {
-    background-color: #B71C1C !important; /* Warna merah marun khas nusantara */
-    border-radius: 0.5rem !important;
-    font-weight: 600 !important;
-    transition: background-color 0.3s ease;
-}
-.auth-card button[type="submit"]:hover {
-    background-color: #880E4F !important; /* Warna lebih gelap saat hover */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
-/* Mengubah link "Forgot your password?" */
-.auth-card a {
-    color: #8D6E63 !important; /* Warna coklat */
-    text-decoration: none;
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
 }
-.auth-card a:hover {
-    color: #5D4037 !important;
-    text-decoration: underline;
+
+@keyframes flash-green {
+    0%, 100% { background-color: #eff6ff; border-color: #60a5fa; }
+    50% { background-color: #dcfce7; border-color: #22c55e; }
 }
+
+@keyframes flash-red {
+    0%, 100% { background-color: #eff6ff; border-color: #60a5fa; }
+    50% { background-color: #fee2e2; border-color: #ef4444; }
+}
+
+
+/* === Kelas Utilitas Animasi === */
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.7s ease-out forwards;
+    opacity: 0;
+}
+
+.animate-stagger > * {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-stagger > *:nth-child(1) { animation-delay: 0.1s; }
+.animate-stagger > *:nth-child(2) { animation-delay: 0.2s; }
+.animate-stagger > *:nth-child(3) { animation-delay: 0.3s; }
+.animate-stagger > *:nth-child(4) { animation-delay: 0.4s; }
+.animate-stagger > *:nth-child(5) { animation-delay: 0.5s; }
+
+
+/* === Gaya Komponen Interaktif === */
+.btn-animated {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-animated:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+}
+.btn-animated:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.btn-pulse:hover {
+    animation: pulse 1.5s infinite;
+}
+
+.card-animated {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-animated:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* === Gaya Spesifik Game === */
+.timer-warning {
+    color: #ef4444; /* red-500 */
+    animation: pulse 1s infinite;
+}
+
+.drop-zone-dragover {
+    border-color: #3b82f6; /* blue-500 */
+    background-color: #eff6ff; /* blue-50 */
+    transform: scale(1.02);
+}
+
+.answer-correct {
+    animation: flash-green 1s ease-out;
+}
+
+.answer-incorrect {
+    animation: flash-red 1s ease-out;
+}
+
+.heart-lost {
+    animation: shake 0.5s ease-out;
+    color: #ef4444 !important;
+    transform: scale(0.8);
+}
+

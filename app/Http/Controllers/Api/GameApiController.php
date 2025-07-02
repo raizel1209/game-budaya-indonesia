@@ -15,9 +15,8 @@ class GameApiController extends Controller
      */
     public function getQuestions()
     {
-        // Ambil 15 soal secara acak dari database
-        // Pastikan untuk mengacak pilihan jawaban juga nanti di sisi JavaScript
-        $questions = Question::inRandomOrder()->limit(15)->get();
+        // Ambil semua soal secara acak dari database
+        $questions = Question::inRandomOrder()->get();
         
         // Mengubah string JSON 'options' menjadi array PHP sebelum dikirim
         $questions->transform(function ($question) {
@@ -30,6 +29,7 @@ class GameApiController extends Controller
 
     /**
      * Menyimpan skor pemain yang sedang login.
+     * (Fungsi ini tidak lagi digunakan, dipindahkan ke ScoreController)
      */
     public function storeScore(Request $request)
     {

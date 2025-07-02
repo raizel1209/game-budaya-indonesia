@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('correct_answer');
             $table->json('options'); // Menyimpan semua pilihan (termasuk yg benar) dalam format JSON
             $table->string('clue')->nullable();
+            $table->string('image_path')->nullable(); // Hapus ->after('clue') dari sini
             $table->timestamps();
         });
     }

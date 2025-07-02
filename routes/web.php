@@ -29,10 +29,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Halaman utama untuk bermain game
     Route::get('/play', [GameController::class, 'index'])->name('game.play');
+    
+    // Rute baru untuk halaman Game Over
+    Route::get('/game-over', [GameController::class, 'gameOver'])->name('game.over');
 
     // Halaman untuk melihat papan skor universal
     Route::get('/scores', [ScoreController::class, 'index'])->name('scores.index');
-
+    
     // Rute untuk manajemen profil bawaan Breeze
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
