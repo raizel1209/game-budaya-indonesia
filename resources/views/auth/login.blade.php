@@ -1,4 +1,13 @@
 <x-guest-layout>
+    <!-- Tambahkan Elemen Audio untuk Musik Latar -->
+    <audio id="bg-music" src="{{ asset('audio/main-theme.mp3') }}" autoplay loop></audio>
+    <script>
+        document.addEventListener('click', function() {
+            var audio = document.getElementById('bg-music');
+            if (audio && audio.paused) audio.play();
+        }, { once: true });
+    </script>
+
     <div class="w-full flex flex-wrap min-h-[60vh]">
 
         <!-- Bagian Branding dengan Warna Merah Khas Indonesia -->

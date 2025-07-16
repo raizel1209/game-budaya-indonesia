@@ -201,16 +201,37 @@
         </script>
     @endpush
 
+    {{-- Audio background khusus game --}}
     <audio id="bg-music" src="{{ asset('audio/game-theme.mp3') }}" autoplay loop></audio>
+    {{-- SFX --}}
     <audio id="sfx-correct" src="{{ asset('audio/sfx-correct.mp3') }}"></audio>
     <audio id="sfx-wrong" src="{{ asset('audio/sfx-wrong.mp3') }}"></audio>
     <audio id="sfx-timer" src="{{ asset('audio/sfx-timer.mp3') }}"></audio>
     <audio id="sfx-yay" src="{{ asset('audio/sfx-yay.mp3') }}"></audio>
     <script>
-        document.addEventListener('click', function() {
-            var audio = document.getElementById('bg-music');
-            if (audio.paused) audio.play();
-        }, { once: true });
+        // Unlock audio SFX di semua browser setelah interaksi user pertama
+        function unlockAllSfx() {
+            var sfxIds = ['sfx-correct', 'sfx-wrong', 'sfx-timer', 'sfx-yay'];
+            sfxIds.forEach(function(id) {
+                var audio = document.getElementById(id);
+                if (audio) {
+                    audio.volume = 1.0;
+                    // Play & pause untuk unlock di browser
+                    try {
+                        audio.play().then(() => {
+                            audio.pause();
+                            audio.currentTime = 0;
+                        }).catch(()=>{});
+                    } catch(e) {}
+                }
+            });
+            document.removeEventListener('click', unlockAllSfx);
+            document.removeEventListener('touchstart', unlockAllSfx);
+            document.removeEventListener('keydown', unlockAllSfx);
+        }
+        document.addEventListener('click', unlockAllSfx);
+        document.addEventListener('touchstart', unlockAllSfx);
+        document.addEventListener('keydown', unlockAllSfx);
 
         // Fungsi untuk memainkan SFX
         function playSfx(id) {
@@ -221,11 +242,11 @@
             }
         }
 
-        // Contoh pemanggilan:
+        // --- Contoh pemanggilan dari logika game Anda ---
         // playSfx('sfx-correct'); // saat jawaban benar
         // playSfx('sfx-wrong');   // saat jawaban salah
-        // playSfx('sfx-timer');   // saat timer berbunyi
-        // playSfx('sfx-yay');     // saat game selesai
+        // playSfx('sfx-timer');   // saat timer menyentuh detik ke 10
+        // playSfx('sfx-yay');     // saat game selesai dan skor muncul
     </script>
 
 </x-app-layout>

@@ -1,5 +1,14 @@
 <x-app-layout>
     <div class="bg-gray-100 dark:bg-gray-900">
+        <!-- Background Music -->
+        <audio id="bg-music" src="{{ asset('audio/main-theme.mp3') }}" autoplay loop></audio>
+        <script>
+            document.addEventListener('click', function() {
+                var audio = document.getElementById('bg-music');
+                if (audio && audio.paused) audio.play();
+            }, { once: true });
+        </script>
+
         <!-- Hero Section -->
         <div class="bg-red-800 text-white animate-fade-in">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">

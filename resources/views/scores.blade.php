@@ -1,4 +1,33 @@
 <x-app-layout>
+    {{-- Audio background untuk halaman score --}}
+    <audio id="bg-music" src="{{ asset('audio/main-theme.mp3') }}" autoplay loop></audio>
+    <button id="music-toggle" style="position:fixed;top:16px;right:16px;z-index:50;">🔊</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('bg-music');
+            var btn = document.getElementById('music-toggle');
+            audio.volume = 0.5; // Atur volume agar tidak terlalu keras
+            // Play audio saat user klik di mana saja
+            function enableAudio() {
+                if (audio.paused) audio.play();
+                document.removeEventListener('click', enableAudio);
+            }
+            document.addEventListener('click', enableAudio);
+
+            // Tombol play/pause
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (audio.paused) {
+                    audio.play();
+                    btn.textContent = '🔊';
+                } else {
+                    audio.pause();
+                    btn.textContent = '🔇';
+                }
+            });
+        });
+    </script>
+
     <div class="py-12 bg-gray-100 dark:bg-gray-900 animate-fade-in">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
             <div class="text-center mb-12">

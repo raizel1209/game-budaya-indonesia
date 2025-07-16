@@ -39,6 +39,14 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="antialiased">
+    <audio id="bg-music" src="{{ asset('audio/main-theme.mp3') }}" autoplay loop></audio>
+    <script>
+        document.addEventListener('click', function() {
+            var audio = document.getElementById('bg-music');
+            if (audio && audio.paused) audio.play();
+        }, { once: true });
+    </script>
+
     <video autoplay muted loop class="video-bg">
         {{-- Video of Balinese dance --}}
         <source src="https://cdn.pixabay.com/video/2024/09/17/231925_large.mp4" type="video/mp4">
