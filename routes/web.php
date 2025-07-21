@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\EducationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // BARU: Rute API untuk menyimpan skor, kini menggunakan middleware 'web'
     // Ini memastikan autentikasi sesi digunakan, sehingga Auth::user() akan berfungsi.
     Route::post('/api/scores', [ScoreController::class, 'store'])->name('api.scores.store');
+
+    Route::get('/belajar', [EducationController::class, 'index'])->name('belajar.index'); 
 });
 
 

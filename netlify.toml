@@ -1,4 +1,0 @@
-# netlify.toml
-[build]
-  command = "composer install && npm install && npm run build"
-  publish = "public"
