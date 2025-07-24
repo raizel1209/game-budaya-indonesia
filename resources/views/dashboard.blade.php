@@ -1,5 +1,14 @@
 <x-app-layout>
-    <div class="bg-gray-100 dark:bg-gray-900">
+    <style>
+        .dashboard-bg {
+            background-image: url("{{ asset('images/Indonesia.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+    </style>
+    <div class="dashboard-bg">
         <!-- Background Music -->
         <audio id="bg-music" src="{{ asset('audio/main-theme.mp3') }}" autoplay loop></audio>
         <script>
