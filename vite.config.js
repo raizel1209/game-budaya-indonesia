@@ -8,4 +8,15 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server: {
+        https: false,
+        cors: {
+            origin: 'https://absolutely-devoted-crab.ngrok-free.app',
+            methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+            allowedHeaders: ['Content-Type', 'Authorization'],
+            credentials: true,
+        },
+        host: 'localhost',
+        port: 5173,
+    },
 });
